@@ -1,3 +1,3 @@
 # walkRunRideMoon
 
-> URL: snapluu.org
+> URL: https://snapluu.org
