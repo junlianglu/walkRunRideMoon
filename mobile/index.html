@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Self-Help for the Elderly 2022 Walk Run Ride to the Moon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <meta name="keywords" content="moon, autumn, festival, Chinese, lunar">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url"           content="https://www.snapluu.org/nodeapp" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Self-Help for the Elderly 2022 Walk Run Ride to the Moon" />
+    <meta property="og:description"   content="Take a Virtual Snap" />
+    <meta property="og:image"         content="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/bkg.png" />
+    <style>
+      body, html {
+        height: 100%;
+      }
+
+      body {
+        background-image: url('https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/bkg.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        color: #ffffff;
+        font-size: 10px;
+        font-family: 'Space Grotesk', sans-serif;
+      } 
+
+      img {
+          vertical-align: middle;
+          border-style: none;
+      }
+
+      ul {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 0px;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      input.txt {
+        width: 100%;
+        background: #ffffff !important;
+        max-width: 300px;
+        padding: 20px 30px;
+        border-radius: 35px;
+        color: #652d90 !important;
+        font-size: 16px !important;
+        border: none;
+        outline: none;
+      }
+
+      .upload-text {
+        float: right;
+      }
+
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        text-align: center;
+      }
+      
+      a {
+        cursor: pointer;
+      }
+
+      svg {
+        overflow: hidden;
+        vertical-align: middle;
+        margin: 0 auto;
+        background: #ffffff;
+        border: none;
+        text-align: center;
+        border-radius: 50%;
+        display: block; 
+        background: #ffffff;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        padding: 11px;
+      }
+
+      .li-dislike-like {
+        display: inline-block;
+        margin: 10px auto;
+        margin-top: 0;
+        padding: 0 9px;
+        vertical-align: top;
+        list-style-type: none;
+      }
+
+      .li-info {
+        display: block;
+        margin: 10px auto;
+        margin-top: 0;
+        padding: 0 9px;
+        vertical-align: top;
+        list-style-type: none;
+      }
+
+      #start-button-id {
+        position: absolute;
+        top: 70%;
+        left: 0;
+        right: 0;
+        bottom: 30%;
+        margin: auto;
+      }
+
+      #start-image {
+        /*position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: -1;
+        max-width: 405px;
+        margin: auto;*/
+      }
+
+      .site-content {
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image : url('https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/phoneStart.png');
+        margin: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 405px;
+      }
+
+      .content-area {
+        margin: 15px;
+        text-align: center;
+      }
+
+      .button-wrapper {
+        margin: 6px 0;
+        text-align: center;
+        width: 100%;
+        position: relative;
+      }
+
+      .white-oval-button {
+          font-family: 'Space Grotesk', sans-serif;
+          font-weight: 400;
+          line-height: 1.5;
+          font-size: 20px;
+          background: #ffffff;
+          border: none;
+          width: 85%;
+          margin: 0 auto;
+          max-width: 250px;
+          padding: 15px 0;
+          text-align: center;
+          border-radius: 35px;
+          color: #652d90;
+          display: block;   
+      }
+
+      #canvas {
+        display: none;
+      }
+
+      .webcam {
+        position: relative;
+        height: 275px!important;
+        width: 275px!important;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #video {
+        position: relative;
+        top: 0;
+        /*margin: auto;*/
+        object-fit: cover;
+        max-width: 275px;
+        max-height: 275px;
+        /*background-color: #666;*/
+        border-radius: 14px;
+        -webkit-transform: scaleX(-1);
+      }
+
+      #photo {
+        position: absolute;
+        top: 0;
+        /*margin: 0 auto!important;*/
+        border-radius: 14px;
+        height: 275px!important;
+        width: 275px!important;
+        max-height: 275px;
+        max-width: 275px; 
+      }
+
+      #frame {
+        position: absolute;
+        top: 0;
+        /*margin: 0 auto!important;*/
+        border-radius: 14px;
+        height: 275px!important;
+        width: 275px!important;
+        max-height: 275px;
+        max-width: 275px; 
+      }
+
+      .button-wrapper-live {
+        margin: 6px 0;
+        text-align: center;
+        width: 100%;
+        position: relative;
+      }
+
+      .fil1 {
+          fill: #652d90;
+      }
+
+      #personal-detail-form-id {
+        text-align: center;
+      }
+
+      .select-background {
+          background: #ffffff !important;
+          padding: 12px;
+          padding-right: 0;
+          border-radius: 5px;
+          max-height: 65px;
+          height: 65px;
+          max-width: 90%;
+          display: block;
+          text-align: center;
+          margin: auto;
+          margin-left: auto; 
+          margin-right: auto;
+      }
+
+      .owl-stage {
+          margin-left: auto; 
+          margin-right: auto;
+      }
+
+      .frames {
+        cursor: pointer;
+        box-shadow: 0 0 5px 0px #999;
+        margin: 1px 0;
+      }
+
+      .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+      }
+
+      .fa-facebook {
+        background: #3B5998;
+        color: white;
+        height: 20px;
+        box-sizing: border-box;
+        padding: 1px 12px 1px 12px;
+        border-radius: 9999px;
+        font-weight: 500;
+      }
+
+      .fa-twitter {
+        background: #55ACEE;
+        color: white;
+      }
+
+      .fa-linkedin {
+        background: #007bb5;
+        color: white;
+      }
+
+    </style>
+    <script>
+      var loadFile = function(event) {
+        var file = event.target.files[0]; 
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = readerEvent => {
+          var inputImage = readerEvent.target.result;             
+          var photo = document.getElementById("photo");
+          var frame = document.getElementById("frame");
+          var video = document.querySelector("#video");
+          crop(inputImage, 1).then((canvas) => {
+            canvas.getContext("2d").drawImage(frame, 0, 0, frame.naturalWidth, frame.naturalHeight, 0, 0, canvas.width, canvas.height);
+            var data = canvas.toDataURL('image/png');
+            photo.setAttribute('src', data);
+          });
+          photo.style.display = 'block';
+          video.style.display = 'none';
+          frame.style.display = 'none';
+          document.getElementById("choose-overlay-area-id").style.display = 'none';
+          document.getElementById("rate-area-id").style.display = 'block';
+        }
+      };
+      function startUpPage() {
+        /*var site_content = document.getElementById("site-content-id");
+        let height = site_content.clientHeight;
+        let margin = (height - 720)/2;
+        site_content.style.top =  margin + "px";
+        site_content.style.bottom =  margin + "px";*/
+        document.getElementById("live-content-area-id").style.display = 'none';
+        document.getElementById("submission-area-id").style.display = 'none';
+        document.getElementById("restart-or-share-area-id").style.display = 'none';
+      }
+
+      function goToLivePage() {
+        document.getElementById("site-content-id").style.backgroundImage = "url('https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/phone-bk.png')";
+        document.getElementById("starting-content-area-id").style.display = 'none';
+        document.getElementById("live-content-area-id").style.display = 'block';
+        document.getElementById("photo").style.display = 'none';
+        var frame = document.getElementById("frame");
+        frame.src = "https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame1.png";
+        frame.style.display = 'block';
+        document.getElementById("choose-overlay-area-id").style.display = 'none';
+        document.getElementById("rate-area-id").style.display = 'none'; 
+        var video = document.querySelector("#video");
+        navigator.mediaDevices.getUserMedia({video: true, audio: false})
+        .then(function(stream) {
+          video.srcObject = stream;
+          video.play();
+        })
+        .catch(function(err) {
+          console.log("An error occurred: " + err);
+        });
+      }
+
+      function showChooseOverlayArea() {
+        document.getElementById("choose-experience-area-id").style.display = 'none';
+        document.getElementById("choose-overlay-area-id").style.display = 'block';
+        var frame = document.getElementById("frame");
+        frame.src = "https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame1.png";
+        frame.style.display = 'block';
+      }
+
+      function goToLivePageBack() {
+        clearphoto();
+        document.getElementById("photo").style.display = 'none';   
+        document.getElementById("rate-area-id").style.display = 'none';
+        document.getElementById("video").style.display = 'block';
+        document.getElementById("frame").style.display = 'block';
+        document.getElementById("choose-overlay-area-id").style.display = 'block';
+      }
+
+      function goToLivePageRestart() {
+        document.getElementById("restart-or-share-area-id").style.display = 'none';
+        clearphoto();
+        document.getElementById("live-content-area-id").style.display = 'none';
+        document.getElementById("submission-area-id").style.display = 'none';
+        document.getElementById("restart-or-share-area-id").style.display = 'none';
+        document.getElementById("starting-content-area-id").style.display = 'none';
+        document.getElementById("live-content-area-id").style.display = 'block';
+        document.getElementById("photo").style.display = 'none';
+        var frame = document.getElementById("frame");
+        frame.src = "https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame1.png";
+        frame.style.display = 'block';
+        document.getElementById("choose-overlay-area-id").style.display = 'none';
+        document.getElementById("rate-area-id").style.display = 'none';
+        document.getElementById("choose-experience-area-id").style.display = 'block';
+        document.getElementById("video").style.display = 'block';
+      }
+
+      function showSendEmailPage() {
+        document.getElementById("live-content-area-id").style.display = 'none';
+        document.getElementById("submission-area-id").style.display = 'block';
+      }
+
+      function showLastPage() {
+        document.getElementById("submission-area-id").style.display = 'none';
+        document.getElementById("restart-or-share-area-id").style.display = 'block';
+        //var photo = document.getElementById("photo");
+        //document.getElementById("twitter-share-id").data('url', photo.src);
+      }
+
+      function setFrame(i){
+        var frame = document.getElementById("frame");
+        if (i == 0) {
+          frame.src = "https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame1.png";
+        }
+        else if (i == 1) {
+          frame.src = "https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame2.png";
+        }
+        else if (i == 2) {
+          frame.src = "https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame3.png";
+        }
+        else if (i == 3) {
+          frame.src = "https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame4.png";
+        }
+        else {
+          frame.src = "https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame5.png";
+        }
+        frame.style.display = 'block';
+      }
+
+      function clearphoto() {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext('2d');
+        context.fillStyle = "#AAA";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        var data = canvas.toDataURL('image/png');
+        photo.setAttribute('src', data);
+      }
+
+      function takepicture() {
+        var canvas = document.getElementById("canvas");
+        var video = document.querySelector("#video");
+        var photo = document.getElementById("photo");
+        var frame = document.getElementById("frame");
+        var context = canvas.getContext('2d');
+        var cropStartX = 0;
+        var cropStartY = 0;
+        var cropLength = video.videoHeight;
+        if (video.videoWidth >= video.videoHeight) {
+          cropStartX = (video.videoWidth-video.videoHeight)/2;
+        } else {
+          cropStartY = (video.videoHeight-video.videoWidth)/2;
+          cropLength = video.videoWidth;
+        }
+        canvas.width = 275;
+        canvas.height = 275;   
+        context.drawImage(video, cropStartX, cropStartY, cropLength, cropLength, 0, 0, canvas.width, canvas.height);
+        context.scale(-1, 1);
+        context.drawImage(canvas, -canvas.width, 0);
+        context.scale(-1, 1);
+        context.drawImage(frame, 0, 0, frame.naturalWidth, frame.naturalHeight, 0, 0, canvas.width, canvas.height);
+        var data = canvas.toDataURL('image/png');
+        document.createElement('canvas');
+        photo.setAttribute('src', data);
+        photo.style.display = 'block';
+        video.style.display = 'none';
+        frame.style.display = 'none';
+        document.getElementById("choose-overlay-area-id").style.display = 'none';
+        document.getElementById("rate-area-id").style.display = 'block';
+
+      }
+
+      function pickFile() {
+        var input = document.createElement('input');
+        input.type = 'file';
+        input.onchange = e => {
+          var file = e.target.files[0]; 
+          var reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = readerEvent => {
+            var inputImage = readerEvent.target.result;             
+            var photo = document.getElementById("photo");
+            var frame = document.getElementById("frame");
+            var video = document.querySelector("#video");
+            crop(inputImage, 1).then((canvas) => {
+              canvas.getContext("2d").drawImage(frame, 0, 0, frame.naturalWidth, frame.naturalHeight, 0, 0, canvas.width, canvas.height);
+              var data = canvas.toDataURL('image/png');
+              photo.setAttribute('src', data);
+            });
+            photo.style.display = 'block';
+            video.style.display = 'none';
+            frame.style.display = 'none';
+            document.getElementById("choose-overlay-area-id").style.display = 'none';
+            document.getElementById("rate-area-id").style.display = 'block';
+          }
+        }
+        input.click();
+      }
+
+      function crop(url, aspectRatio) {
+        // we return a Promise that gets resolved with our canvas element
+        return new Promise((resolve) => {
+          // this image will hold our source image data
+          const inputImage = new Image();
+
+          // we want to wait for our image to load
+          inputImage.onload = () => {
+            // let's store the width and height of our image
+            const inputWidth = inputImage.naturalWidth;
+            const inputHeight = inputImage.naturalHeight;
+
+            // get the aspect ratio of the input image
+            const inputImageAspectRatio = inputWidth / inputHeight;
+
+            // if it's bigger than our target aspect ratio
+            let outputWidth = inputWidth;
+            let outputHeight = inputHeight;
+            if (inputImageAspectRatio > aspectRatio) {
+              outputWidth = inputHeight * aspectRatio;
+            } else if (inputImageAspectRatio < aspectRatio) {
+              outputHeight = inputWidth / aspectRatio;
+            }
+
+            // calculate the position to draw the image at
+            const outputX = (outputWidth - inputWidth) * 0.5;
+            const outputY = (outputHeight - inputHeight) * 0.5;
+
+            // create a canvas that will present the output image
+            const outputImage = document.createElement("canvas");
+
+            // set it to the same size as the image
+            outputImage.width = outputWidth;
+            outputImage.height = outputHeight;
+
+            // draw our image at position 0, 0 on the canvas
+            const ctx = outputImage.getContext("2d");
+            ctx.drawImage(inputImage, outputX, outputY);
+            resolve(outputImage);
+          };
+
+          // start loading our image
+          inputImage.src = url;
+          
+        });
+      }
+    </script>
+  </head>
+  <body onload="startUpPage()">
+    <div class="site-content" id="site-content-id">
+      <div class="content-area" id="content-area-id">
+        <div id="starting-content-area-id">
+          <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
+          <div class="button-wrapper" id="start-button-id">
+            <a class="white-oval-button" onclick="goToLivePage()">Take a Virtual Snap Now</a>
+          </div>
+        </div>
+        <div id="live-content-area-id">
+          <p><br></p><p><br></p><p><br></p>
+          <div class="webcam" id="webcam-id">
+            <video id="video" autoplay playsinline width="275" height="275"></video>
+            <img id="photo" src="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame1.png" alt="photo" style="display: none;">
+            <img id="frame" src="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame1.png" crossorigin="anonymous" width="275" height="275" alt="frame" style="display: none;">
+          </div>
+          <canvas id="canvas" style="display: none;">
+          </canvas>
+          <div id="choose-experience-area-id">
+            <a class="camera-button" id="camera-button-id" onclick="showChooseOverlayArea()">
+              <span class="small-icon">
+                <svg width="35" height="35" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                     viewBox="0 0 838.3 838.3">
+                    <g>
+                        <g id="_2214363745072">
+                            <rect class="fil0" style="fill: none" x="-0" y="0" width="838.3" height="838.3" />
+                            <path class="fil1" d="M451.16 564.71c-62.35,-0.13 -112.96,-50.99 -112.83,-113.52 0.06,-62.35 50.98,-112.96 113.52,-112.84 62.41,0.13 112.96,50.92 112.83,113.53 -0.06,62.35 -50.92,112.9 -113.52,112.83zm-167.27 -193.96c-19.59,-0.19 -39.25,-0.06 -58.9,-0.06 -19.65,0 -39.24,-0.12 -58.9,0.06 -4.52,0.06 -5.97,-1.19 -5.9,-5.84 0.25,-17.9 0.25,-35.79 0.06,-53.69 -0.06,-4.02 1.13,-5.34 5.21,-5.34 39.62,0.13 79.3,0.13 118.92,0 3.96,0 5.46,1.13 5.4,5.27 -0.19,17.89 -0.19,35.79 0.06,53.69 0.06,4.58 -1.38,5.96 -5.96,5.9zm458.68 -66.18c-0.06,-29.2 -20.53,-54.38 -48.91,-61.09 -7.16,-1.7 -14.82,-1.82 -22.29,-2.14 -8.35,-0.38 -16.76,-0.12 -25.74,-0.12 0,-10.99 0.06,-21.16 0,-31.27 -0.19,-19.4 -13.75,-33.15 -33.09,-33.34 -20.97,-0.13 -41.94,-0.13 -62.92,0 -19.59,0.06 -33.28,13.94 -33.4,33.59 -0.13,9.99 -0.06,19.97 -0.06,30.77 -2.57,0.12 -4.46,0.25 -6.34,0.25l-241.99 0c-36.42,0 -72.84,-0.44 -109.19,0.25 -35.48,0.69 -62.92,29.01 -62.98,64.42 -0.19,97.01 -0.12,194.02 -0.06,291.03 0.06,20.22 8.16,36.98 23.67,49.98 12.62,10.55 27.44,14.95 43.83,14.88 117.04,-0.06 234.14,0 351.18,0 54.12,0 108.19,0.13 162.31,-0.06 36.8,-0.13 65.87,-27.57 65.99,-63.23 0.31,-98.01 0.25,-195.97 0,-293.92z" />
+                        </g>
+                    </g>
+                </svg>
+              </span>
+              <span>Photo</span>
+            </a>
+          </div>
+          <div id="choose-overlay-area-id">
+            <p id="message-choose-frame">Choose an overlay</p>
+            <div>
+              <div class="select-background">
+                <div class="owl-carousel_1 owl-theme">
+                  <div class="owl-stage-outer" style="overflow-x: auto; overflow-y: hidden; white-space: nowrap;">
+                    <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 340px;">
+                      <div class="owl-item active" style="display: inline-block; width: auto; margin-right: 20px;">
+                        <div class="item">
+                          <img class="frames" src="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame1.png" onclick="setFrame(0)" style="opacity: 1; max-height: 60px; max-width: 60px;" alt="frame1">
+                        </div>
+                      </div>
+                      <div class="owl-item active" style="display: inline-block; width: auto; margin-right: 20px;">
+                        <div class="item">
+                          <img class="frames" src="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame2.png" onclick="setFrame(1)" style="opacity: 1; max-height: 60px; max-width: 60px;" alt="frame2">
+                        </div>
+                      </div>
+                      <div class="owl-item active" style="display: inline-block; width: auto; margin-right: 20px;">
+                        <div class="item">
+                          <img class="frames" src="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame3.png" onclick="setFrame(2)" style="opacity: 1; max-height: 60px; max-width: 60px;" alt="frame3">
+                        </div>
+                      </div>
+                      <div class="owl-item active" style="display: inline-block; width: auto; margin-right: 20px;">
+                        <div class="item">
+                          <img class="frames" src="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame4.png" onclick="setFrame(3)" style="opacity: 1; max-height: 60px; max-width: 60px;"  alt="frame4">
+                        </div>
+                      </div>
+                      <div class="owl-item active" style="display: inline-block; width: auto; margin-right: 20px;">
+                        <div class="item">
+                          <img class="frames" src="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/frame5.png" onclick="setFrame(4)" style="opacity: 1; max-height: 60px; max-width: 60px;"  alt="frame5">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="button-wrapper" id="take-photo-button-id">
+              <a class="white-oval-button" onclick="takepicture()">Start</a>
+            </div>
+            <div id="upload-image-id" style="text-align:center;padding:3px">
+              <input type="file"  accept="image/*" name="image" id="file" class="upload-text"  onchange="loadFile(event)" style="display: block;text-decoration:underline">
+              <!--<a class="upload-text" style="text-decoration:underline" onclick="pickFile()">Upload an image</a>-->
+            </div>
+          </div>
+          <div id="rate-area-id">
+            <p id="message-tryAgain">Awesome Shot! Agreed?</p>
+            <div class="button-wrapper-live" id="live-button-id">
+              <ul id="dislike-like-button-wrapper-id">
+                <li class="li-dislike-like">
+                  <a class="dislike-button" id="dislike-button-id" onclick="goToLivePageBack()">
+                    <span class="small-ico">
+                      <svg width="35" height="35" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                           viewBox="0 0 323.37 323.37">
+                          <g>
+                              <g id="_2212506685456">
+                                  <rect class="fil0" style="fill: none" x="-0" y="0" width="323.37" height="323.37" />
+                                  <g>
+                                      <path class="fil1" d="M233.38 190.36l28.68 0c3.96,0 7.17,-3.21 7.17,-7.17l0 -114.72c0,-3.96 -3.21,-7.17 -7.17,-7.17l-28.68 0c-3.96,0 -7.17,3.21 -7.17,7.17l0 114.72c0,3.96 3.21,7.17 7.17,7.17z" />
+                                      <path class="fil1" d="M54.27 171.35c1.26,11.12 11.65,19.01 22.85,19.01l55.9 0c-4.75,8.51 -7.3,32.57 -7.19,42.39 0.19,16.27 13.66,29.31 29.93,29.31l5.92 0c3.96,0 7.17,-3.21 7.17,-7.17 -0,-16.58 6.46,-46.51 18.63,-58.68 8.2,-8.2 15.2,-11.17 24.39,-15.76l-0 -107.59c-14.06,-4.69 -31.92,-11.56 -59.14,-11.56l-46.9 0c-15.45,0 -27.49,14.31 -21.5,29.44 -9.12,2.49 -15.85,10.85 -15.85,20.75 0,2.79 0.54,5.47 1.51,7.93 -15.38,4.19 -21.03,23.17 -10.36,35.09 -3.92,4.38 -6.08,10.37 -5.35,16.84z" />
+                                  </g>
+                              </g>
+                          </g>
+                      </svg>
+                    </span>
+                    <span>Try Again</span>
+                  </a>            
+                </li>
+                <li class="li-dislike-like">
+                  <a class="like-button" id="like-button-id" onclick="showSendEmailPage()">                
+                    <span class="small-ico">
+                        <svg width="35" height="35" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                             viewBox="0 0 417.97 417.97">
+                            <g>
+                                <g id="_2214032690416">
+                                    <rect class="fil0" style="fill: none" x="-0" y="0" width="417.97" height="417.97" />
+                                    <g>
+                                        <path class="fil1" d="M116.32 171.93l-37.07 0c-5.12,0 -9.27,4.15 -9.27,9.27l0 148.28c0,5.12 4.15,9.27 9.27,9.27l37.07 0c5.12,0 9.27,-4.15 9.27,-9.27l0 -148.28c0,-5.12 -4.15,-9.27 -9.27,-9.27z" />
+                                        <path class="fil1" d="M347.82 196.5c-1.64,-14.38 -15.06,-24.57 -29.53,-24.57l-72.25 0c6.14,-10.99 9.44,-42.09 9.29,-54.8 -0.24,-21.03 -17.66,-37.88 -38.68,-37.88l-7.65 0c-5.12,0 -9.27,4.14 -9.27,9.27 0,21.43 -8.34,60.11 -24.08,75.85 -10.59,10.59 -19.65,14.43 -31.52,20.37l0 139.06c18.18,6.06 41.26,14.95 76.44,14.95l60.62 0c19.97,0 35.53,-18.5 27.79,-38.05 11.79,-3.21 20.49,-14.03 20.49,-26.83 0,-3.61 -0.7,-7.07 -1.96,-10.25 19.87,-5.41 27.19,-29.95 13.39,-45.36 5.07,-5.66 7.86,-13.41 6.91,-21.77z" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </span>
+                    <span>Love It</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="submission-area-id">
+        <p><br></p><p><br></p><p><br></p>
+        <p id="message-enterInfo">Please enter your information below</p>
+        <div class="personal-detail-form" id="personal-detail-form-id">
+          <ul>
+            <li class="li-info">
+              <input type="text" class="txt" id="receiverFullName" placeholder="Full Name" value="" required>
+            </li>
+            <li class="li-info">
+              <input type="email" class="txt" id="receiverEmail" placeholder="Email" value="" required>
+            </li>
+            <li class="li-info">
+              <input type="text" class="txt" id="receiverZipCode" placeholder="Zip Code" value="">
+            </li>
+          </ul>
+        </div>
+        <button type="submit" class="white-oval-button" id="submit-button-id" onclick="showLastPage()">Submit</button>        
+      </div>
+      <div id="restart-or-share-area-id">
+        <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
+        <p id="message-restart">Thank you! Play again?</p>
+        <div class="button-wrapper" id="restart-button-id">
+          <a class="white-oval-button" onclick="goToLivePageRestart()">Restart</a>
+        </div>
+        <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
+        <div class="button-wrapper" id="share-buttons-id">
+          <!-- Load Facebook SDK for JavaScript -->
+          <div id="fb-root"></div>
+          <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+          fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));</script>
+          <!-- Your share button code -->
+          <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.snapluu.org%2Fnodeapp&layout=button_count&size=small&width=77&height=20&appId" width="67" height="20" style="border:none;overflow:hidden" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+ 
+          <script>window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+              t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+            t._e = [];
+            t.ready = function(f) {
+              t._e.push(f);
+            };
+            return t;
+          }(document, "script", "twitter-wjs"));</script>      
+          <a style="display: inline-block;" class="twitter-share-button"
+            href="https://twitter.com/intent/tweet"
+            data-url="https://www.snapluu.org/nodeapp">
+          Tweet
+          </a>
+        </div>
+      </div>     
+    </div>
+    <script>
+      document.getElementById('submit-button-id')
+          .addEventListener('click', (e) => {
+              e.preventDefault();
+              const fullName = document
+                  .querySelector('#receiverFullName').value;
+
+              const email = document
+                  .querySelector('#receiverEmail').value;
+              const resultImage = document.querySelector('#photo').src;
+              fetch('/nodeapp', {
+                  method: 'POST',
+                  headers: {
+                      Authorization: 'Dexter Lu',
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                      fullName,
+                      email,
+                      resultImage,
+                  }),
+              })
+                  .then((res) => {
+                      return res.json();
+                  })
+                  .then((data) => console.log(""));
+      });
+    </script>
+  </body>
+</html>
