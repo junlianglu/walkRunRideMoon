@@ -37,7 +37,7 @@ app.post('/nodeapp', (req, res) => {
       Self-Help for the Elderly wishes everyone joy, peace, and health in the new year. And to help you achieve these goals, Self-Help for the Elderly will be there every step of the way.<br><br>\
       Visit selfhelpelderly.org for a wealth of resources and services to help you move forward towards a fresh start to your new year.<br><br>\
       <p style='color:grey;'>Self-Help for the Elderly</p><br><br>";
-    longString += "<img src='https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/main/email-logo.png'>";
+    longString += "<img src='https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/email-logo.png'>";
     longString += "</body></html>";
 
     var mailOptions = {
