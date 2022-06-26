@@ -3,6 +3,8 @@
   <head>
     <title>Self-Help for the Elderly 2022 Walk Run Ride to the Moon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="utf-8">
     <meta name="keywords" content="moon, autumn, festival, Chinese, lunar">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +13,17 @@
     <meta property="og:title"         content="Self-Help for the Elderly 2022 Walk Run Ride to the Moon" />
     <meta property="og:description"   content="Take a Virtual Snap" />
     <meta property="og:image"         content="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/bkg.png" />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/bkg.png">
     <style>
       body, html {
         height: 100%;
       }
 
       body {
-        background-image: url('https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/bkg.png');
+        /*background-image: url('https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/bkg.png');*/
         background-size: 100% 100%;
         background-repeat: no-repeat;
+        background-color: black;
         color: #ffffff;
         font-size: 10px;
         font-family: 'Space Grotesk', sans-serif;
@@ -46,12 +50,12 @@
 
       input.txt {
         width: 100%;
-        background: #ffffff !important;
+        background: #ffffff;
         max-width: 300px;
         padding: 20px 30px;
         border-radius: 35px;
-        color: #652d90 !important;
-        font-size: 16px !important;
+        color: #652d90;
+        font-size: 16px;
         border: none;
         outline: none;
       }
@@ -117,7 +121,7 @@
       }
 
       #start-image {
-        /*position: absolute;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
@@ -125,14 +129,14 @@
         width: 100%;
         z-index: -1;
         max-width: 405px;
-        margin: auto;*/
+        margin: auto;
       }
 
       .site-content {
         background-size: 100% 100%;
         background-position: center;
         background-repeat: no-repeat;
-        background-image : url('https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/phoneStart.png');
+        background-image : url('https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/phone-bk.png');
         margin: auto;
         position: fixed;
         top: 0;
@@ -145,7 +149,6 @@
 
       .content-area {
         margin: 15px;
-        text-align: center;
       }
 
       .button-wrapper {
@@ -178,44 +181,38 @@
 
       .webcam {
         position: relative;
-        height: 275px!important;
-        width: 275px!important;
+        height: 275px;
+        width: 275px;
         margin-left: auto;
         margin-right: auto;
       }
 
       #video {
-        position: relative;
+        position: absolute;
         top: 0;
-        /*margin: auto;*/
         object-fit: cover;
-        max-width: 275px;
-        max-height: 275px;
-        /*background-color: #666;*/
         border-radius: 14px;
+        height: 273px;
+        width: 273px;
+        max-width: 300px;
+        max-height: 300px;
         -webkit-transform: scaleX(-1);
       }
 
       #photo {
         position: absolute;
         top: 0;
-        /*margin: 0 auto!important;*/
         border-radius: 14px;
-        height: 275px!important;
-        width: 275px!important;
-        max-height: 275px;
-        max-width: 275px; 
+        height: 275px;
+        width: 275px;
       }
 
       #frame {
         position: absolute;
         top: 0;
-        /*margin: 0 auto!important;*/
         border-radius: 14px;
-        height: 275px!important;
-        width: 275px!important;
-        max-height: 275px;
-        max-width: 275px; 
+        height: 275px;
+        width: 275px; 
       }
 
       .button-wrapper-live {
@@ -234,7 +231,7 @@
       }
 
       .select-background {
-          background: #ffffff !important;
+          background: #ffffff;
           padding: 12px;
           padding-right: 0;
           border-radius: 5px;
@@ -269,23 +266,22 @@
         border-radius: 50%;
       }
 
+      /* Add a hover effect if you want */
+      .fa:hover {
+        opacity: 0.7;
+      }
+
+      /* Set a specific color for each brand */
+
+      /* Facebook */
       .fa-facebook {
         background: #3B5998;
         color: white;
-        height: 20px;
-        box-sizing: border-box;
-        padding: 1px 12px 1px 12px;
-        border-radius: 9999px;
-        font-weight: 500;
       }
 
+      /* Twitter */
       .fa-twitter {
         background: #55ACEE;
-        color: white;
-      }
-
-      .fa-linkedin {
-        background: #007bb5;
         color: white;
       }
 
@@ -324,7 +320,6 @@
       }
 
       function goToLivePage() {
-        document.getElementById("site-content-id").style.backgroundImage = "url('https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/phone-bk.png')";
         document.getElementById("starting-content-area-id").style.display = 'none';
         document.getElementById("live-content-area-id").style.display = 'block';
         document.getElementById("photo").style.display = 'none';
@@ -533,6 +528,7 @@
     <div class="site-content" id="site-content-id">
       <div class="content-area" id="content-area-id">
         <div id="starting-content-area-id">
+          <img id="start-image" src="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/phoneStart.png" alt="start-image">
           <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
           <div class="button-wrapper" id="start-button-id">
             <a class="white-oval-button" onclick="goToLivePage()">Take a Virtual Snap Now</a>
@@ -541,30 +537,32 @@
         <div id="live-content-area-id">
           <p><br></p><p><br></p><p><br></p>
           <div class="webcam" id="webcam-id">
-            <video id="video" autoplay playsinline width="275" height="275"></video>
+            <video id="video" autoplay playsinline></video>
             <img id="photo" src="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/frame1.png" alt="photo" style="display: none;">
-            <img id="frame" src="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/frame1.png" crossorigin="anonymous" width="275" height="275" alt="frame" style="display: none;">
+            <img id="frame" src="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/frame1.png" crossorigin="anonymous" alt="frame" style="display: none;">
           </div>
           <canvas id="canvas" style="display: none;">
           </canvas>
           <div id="choose-experience-area-id">
-            <a class="camera-button" id="camera-button-id" onclick="showChooseOverlayArea()">
-              <span class="small-icon">
-                <svg width="35" height="35" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                     viewBox="0 0 838.3 838.3">
-                    <g>
-                        <g id="_2214363745072">
-                            <rect class="fil0" style="fill: none" x="-0" y="0" width="838.3" height="838.3" />
-                            <path class="fil1" d="M451.16 564.71c-62.35,-0.13 -112.96,-50.99 -112.83,-113.52 0.06,-62.35 50.98,-112.96 113.52,-112.84 62.41,0.13 112.96,50.92 112.83,113.53 -0.06,62.35 -50.92,112.9 -113.52,112.83zm-167.27 -193.96c-19.59,-0.19 -39.25,-0.06 -58.9,-0.06 -19.65,0 -39.24,-0.12 -58.9,0.06 -4.52,0.06 -5.97,-1.19 -5.9,-5.84 0.25,-17.9 0.25,-35.79 0.06,-53.69 -0.06,-4.02 1.13,-5.34 5.21,-5.34 39.62,0.13 79.3,0.13 118.92,0 3.96,0 5.46,1.13 5.4,5.27 -0.19,17.89 -0.19,35.79 0.06,53.69 0.06,4.58 -1.38,5.96 -5.96,5.9zm458.68 -66.18c-0.06,-29.2 -20.53,-54.38 -48.91,-61.09 -7.16,-1.7 -14.82,-1.82 -22.29,-2.14 -8.35,-0.38 -16.76,-0.12 -25.74,-0.12 0,-10.99 0.06,-21.16 0,-31.27 -0.19,-19.4 -13.75,-33.15 -33.09,-33.34 -20.97,-0.13 -41.94,-0.13 -62.92,0 -19.59,0.06 -33.28,13.94 -33.4,33.59 -0.13,9.99 -0.06,19.97 -0.06,30.77 -2.57,0.12 -4.46,0.25 -6.34,0.25l-241.99 0c-36.42,0 -72.84,-0.44 -109.19,0.25 -35.48,0.69 -62.92,29.01 -62.98,64.42 -0.19,97.01 -0.12,194.02 -0.06,291.03 0.06,20.22 8.16,36.98 23.67,49.98 12.62,10.55 27.44,14.95 43.83,14.88 117.04,-0.06 234.14,0 351.18,0 54.12,0 108.19,0.13 162.31,-0.06 36.8,-0.13 65.87,-27.57 65.99,-63.23 0.31,-98.01 0.25,-195.97 0,-293.92z" />
-                        </g>
-                    </g>
-                </svg>
-              </span>
-              <span>Photo</span>
-            </a>
+            <div class="button-wrapper-live">
+              <a class="camera-button" id="camera-button-id" onclick="showChooseOverlayArea()">
+                <span class="small-icon">
+                  <svg width="35" height="35" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                       viewBox="0 0 838.3 838.3">
+                      <g>
+                          <g id="_2214363745072">
+                              <rect class="fil0" style="fill: none" x="-0" y="0" width="838.3" height="838.3" />
+                              <path class="fil1" d="M451.16 564.71c-62.35,-0.13 -112.96,-50.99 -112.83,-113.52 0.06,-62.35 50.98,-112.96 113.52,-112.84 62.41,0.13 112.96,50.92 112.83,113.53 -0.06,62.35 -50.92,112.9 -113.52,112.83zm-167.27 -193.96c-19.59,-0.19 -39.25,-0.06 -58.9,-0.06 -19.65,0 -39.24,-0.12 -58.9,0.06 -4.52,0.06 -5.97,-1.19 -5.9,-5.84 0.25,-17.9 0.25,-35.79 0.06,-53.69 -0.06,-4.02 1.13,-5.34 5.21,-5.34 39.62,0.13 79.3,0.13 118.92,0 3.96,0 5.46,1.13 5.4,5.27 -0.19,17.89 -0.19,35.79 0.06,53.69 0.06,4.58 -1.38,5.96 -5.96,5.9zm458.68 -66.18c-0.06,-29.2 -20.53,-54.38 -48.91,-61.09 -7.16,-1.7 -14.82,-1.82 -22.29,-2.14 -8.35,-0.38 -16.76,-0.12 -25.74,-0.12 0,-10.99 0.06,-21.16 0,-31.27 -0.19,-19.4 -13.75,-33.15 -33.09,-33.34 -20.97,-0.13 -41.94,-0.13 -62.92,0 -19.59,0.06 -33.28,13.94 -33.4,33.59 -0.13,9.99 -0.06,19.97 -0.06,30.77 -2.57,0.12 -4.46,0.25 -6.34,0.25l-241.99 0c-36.42,0 -72.84,-0.44 -109.19,0.25 -35.48,0.69 -62.92,29.01 -62.98,64.42 -0.19,97.01 -0.12,194.02 -0.06,291.03 0.06,20.22 8.16,36.98 23.67,49.98 12.62,10.55 27.44,14.95 43.83,14.88 117.04,-0.06 234.14,0 351.18,0 54.12,0 108.19,0.13 162.31,-0.06 36.8,-0.13 65.87,-27.57 65.99,-63.23 0.31,-98.01 0.25,-195.97 0,-293.92z" />
+                          </g>
+                      </g>
+                  </svg>
+                </span>
+                <span style="padding-top: 5px; display: block;">Photo</span>
+              </a>
+            </div>
           </div>
           <div id="choose-overlay-area-id">
-            <p id="message-choose-frame">Choose an overlay</p>
+            <p id="message-choose-frame" style="font-size: 16px;">Choose an overlay below</p>
             <div>
               <div class="select-background">
                 <div class="owl-carousel_1 owl-theme">
@@ -601,7 +599,7 @@
               </div>
             </div>
             <div class="button-wrapper" id="take-photo-button-id">
-              <a class="white-oval-button" onclick="takepicture()">Start</a>
+              <a class="white-oval-button" onclick="takepicture()">Snap Now</a>
             </div>
             <div id="upload-image-id" style="text-align:center;padding:3px">
               <input type="file"  accept="image/*" name="image" id="file" class="upload-text"  onchange="loadFile(event)" style="display: block;text-decoration:underline">
@@ -609,7 +607,7 @@
             </div>
           </div>
           <div id="rate-area-id">
-            <p id="message-tryAgain">Awesome Shot! Agreed?</p>
+            <p id="message-tryAgain" style="font-size: 16px;">Awesome Shot! Agreed?</p>
             <div class="button-wrapper-live" id="live-button-id">
               <ul id="dislike-like-button-wrapper-id">
                 <li class="li-dislike-like">
@@ -628,7 +626,7 @@
                           </g>
                       </svg>
                     </span>
-                    <span>Try Again</span>
+                    <span style="padding-top: 5px; display: block;">Try Again</span>
                   </a>            
                 </li>
                 <li class="li-dislike-like">
@@ -647,7 +645,7 @@
                             </g>
                         </svg>
                     </span>
-                    <span>Love It</span>
+                    <span style="padding-top: 5px; display: block;">Love It</span>
                   </a>
                 </li>
               </ul>
@@ -657,7 +655,9 @@
       </div>
       <div id="submission-area-id">
         <p><br></p><p><br></p><p><br></p>
-        <p id="message-enterInfo">Please enter your information below</p>
+        <p id="message-enterInfo" style="font-size: 12px;">Please enter your information below<br>to receive your fantastic shot in your designated email<br>
+          Please use #WRR2Moon to share your photo.
+        </p>
         <div class="personal-detail-form" id="personal-detail-form-id">
           <ul>
             <li class="li-info">
@@ -666,23 +666,23 @@
             <li class="li-info">
               <input type="email" class="txt" id="receiverEmail" placeholder="Email" value="" required>
             </li>
-            <li class="li-info">
-              <input type="text" class="txt" id="receiverZipCode" placeholder="Zip Code" value="">
-            </li>
           </ul>
         </div>
         <button type="submit" class="white-oval-button" id="submit-button-id" onclick="showLastPage()">Submit</button>        
       </div>
+
       <div id="restart-or-share-area-id">
         <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
-        <p id="message-restart">Thank you! Play again?</p>
+        <p id="message-restart" style="font-size: 16px;">Thank you! Play again?</p>
         <div class="button-wrapper" id="restart-button-id">
           <a class="white-oval-button" onclick="goToLivePageRestart()">Restart</a>
         </div>
         <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
         <div class="button-wrapper" id="share-buttons-id">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=snapluu.org" target="_blank" class="fa fa-facebook"></a>
+          <a href="https://twitter.com/share?url=https://snapluu.org" target="_blank" class="fa fa-twitter"></a>
           <!-- Load Facebook SDK for JavaScript -->
-          <div id="fb-root"></div>
+          <!--<div id="fb-root"></div>
           <script>(function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
           if (d.getElementById(id)) return;
@@ -690,7 +690,7 @@
           js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
           fjs.parentNode.insertBefore(js, fjs);
           }(document, 'script', 'facebook-jssdk'));</script>
-          <!-- Your share button code -->
+          Your share button code
           <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.snapluu.org%2Fnodeapp&layout=button_count&size=small&width=77&height=20&appId" width="67" height="20" style="border:none;overflow:hidden" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
  
           <script>window.twttr = (function(d, s, id) {
@@ -707,11 +707,11 @@
             };
             return t;
           }(document, "script", "twitter-wjs"));</script>      
-          <a style="display: inline-block;" class="twitter-share-button"
+          <a style="display: inline-block;" class="twitter-share-button fa fa-twitter"
             href="https://twitter.com/intent/tweet"
             data-url="https://www.snapluu.org/nodeapp">
           Tweet
-          </a>
+          </a>-->
         </div>
       </div>     
     </div>
