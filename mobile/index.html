@@ -4,7 +4,6 @@
     <title>Self-Help for the Elderly 2022 Walk Run Ride to the Moon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="utf-8">
     <meta name="keywords" content="moon, autumn, festival, Chinese, lunar">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -285,6 +284,13 @@
         color: white;
       }
 
+      #submit-button-id {
+        position: absolute;
+        top: 70%;
+        left: 0;
+        right: 0;
+      }
+
     </style>
     <script>
       var loadFile = function(event) {
@@ -525,6 +531,17 @@
     </script>
   </head>
   <body onload="startUpPage()">
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId            : 4151518971639709,
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v14.0'
+        });
+      };
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <div class="site-content" id="site-content-id">
       <div class="content-area" id="content-area-id">
         <div id="starting-content-area-id">
@@ -544,6 +561,7 @@
           <canvas id="canvas" style="display: none;">
           </canvas>
           <div id="choose-experience-area-id">
+            <p style="font-size: 16px;"></p>
             <div class="button-wrapper-live">
               <a class="camera-button" id="camera-button-id" onclick="showChooseOverlayArea()">
                 <span class="small-icon">
@@ -668,9 +686,12 @@
             </li>
           </ul>
         </div>
-        <button type="submit" class="white-oval-button" id="submit-button-id" onclick="showLastPage()">Submit</button>        
+        <div style="margin-left: 5%; margin-right: 5%;">
+          <input type="checkbox" id="privacy" name="privacy">
+          <label for="privacy" style="font-size: 10px; text-align: justify;">We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.</label>
+        </div>
+        <button type="submit" class="white-oval-button" id="submit-button-id" onclick="showLastPage()">Submit</button>     
       </div>
-
       <div id="restart-or-share-area-id">
         <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
         <p id="message-restart" style="font-size: 16px;">Thank you! Play again?</p>
@@ -679,39 +700,18 @@
         </div>
         <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
         <div class="button-wrapper" id="share-buttons-id">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=snapluu.org" target="_blank" class="fa fa-facebook"></a>
-          <a href="https://twitter.com/share?url=https://snapluu.org" target="_blank" class="fa fa-twitter"></a>
-          <!-- Load Facebook SDK for JavaScript -->
-          <!--<div id="fb-root"></div>
-          <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-          fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));</script>
-          Your share button code
-          <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.snapluu.org%2Fnodeapp&layout=button_count&size=small&width=77&height=20&appId" width="67" height="20" style="border:none;overflow:hidden" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
- 
-          <script>window.twttr = (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0],
-              t = window.twttr || {};
-            if (d.getElementById(id)) return t;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
-            t._e = [];
-            t.ready = function(f) {
-              t._e.push(f);
-            };
-            return t;
-          }(document, "script", "twitter-wjs"));</script>      
-          <a style="display: inline-block;" class="twitter-share-button fa fa-twitter"
-            href="https://twitter.com/intent/tweet"
-            data-url="https://www.snapluu.org/nodeapp">
-          Tweet
-          </a>-->
+          <div id="shareBtn" style="cursor: pointer;" class="fa fa-facebook"></div>
+          <script>
+            document.getElementById('shareBtn').onclick = function() {
+              FB.ui({
+                display: 'popup',
+                method: 'share',
+                href: 'snapluu.org',
+                hashtag: '#WRR2Moon',
+              }, function(response){});
+            }
+          </script>
+          <a href="https://twitter.com/share?url=https://snapluu.org&hashtags=WRR2Moon" target="_blank" class="fa fa-twitter"></a>
         </div>
       </div>     
     </div>
