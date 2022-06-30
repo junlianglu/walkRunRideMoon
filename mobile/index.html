@@ -291,6 +291,42 @@
         right: 0;
       }
 
+      .donationButton {
+        border-radius: 4px;
+        background-color: #652d90;
+        border: none;
+        color: #FFFFFF;
+        font-size: 20px;
+        padding: 10px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+      }
+
+      .donationButton span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+
+      .donationButton span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+
+      .donationButton:hover span {
+        padding-right: 25px;
+      }
+
+      .donationButton:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
     </style>
     <script>
       var loadFile = function(event) {
@@ -551,7 +587,7 @@
             <a class="white-oval-button" onclick="goToLivePage()">Take a Virtual Snap Now</a>
           </div>
         </div>
-        <div id="live-content-area-id">
+        <div id="live-content-area-id" style="display: none;">
           <p><br></p><p><br></p><p><br></p>
           <div class="webcam" id="webcam-id">
             <video id="video" autoplay playsinline></video>
@@ -671,7 +707,7 @@
           </div>
         </div>
       </div>
-      <div id="submission-area-id">
+      <div id="submission-area-id" style="display: none;">
         <p><br></p><p><br></p><p><br></p>
         <p id="message-enterInfo" style="font-size: 12px;">Please enter your information below<br>to receive your fantastic shot in your designated email<br>
           Please use #WRR2Moon to share your photo.
@@ -692,7 +728,7 @@
         </div>
         <button type="submit" class="white-oval-button" id="submit-button-id" onclick="showLastPage()">Submit</button>     
       </div>
-      <div id="restart-or-share-area-id">
+      <div id="restart-or-share-area-id" style="display: none;">
         <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
         <p id="message-restart" style="font-size: 16px;">Thank you! Play again?</p>
         <div class="button-wrapper" id="restart-button-id">
@@ -711,6 +747,7 @@
               }, function(response){});
             }
           </script>
+          <a href="https://www.selfhelpelderly.org/donate" target="_blank" class="donationButton"><span>DONATE </span></a>
           <a href="https://twitter.com/share?url=https://snapluu.org&hashtags=WRR2Moon" target="_blank" class="fa fa-twitter"></a>
         </div>
       </div>     
