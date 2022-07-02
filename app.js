@@ -16,6 +16,15 @@ app.post('/nodeapp', (req, res) => {
     
     const { fullName, email, resultImage } = req.body;
     const { authorization } = req.headers;
+
+    var body = resultImage,
+      base64Data = body.replace(/^data:image\/png;base64,/,""),
+      binaryData = new Buffer(base64Data, 'base64').toString('binary');
+    var fileName = base64Data.replace(/[^A-Za-z0-9]/g, '').substr(72, 250);
+    require("fs").writeFile(fileName + ".png", binaryData, "binary", function(err) {
+      console.log(err); // writes out file without error, but it's not a valid image
+    });
+    
     var transporter = nodemailer.createTransport(new smtpTransport({
         name: "snapluu.org",
         host: "162.240.17.201",
