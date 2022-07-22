@@ -1,4 +1,4 @@
-# Online snapshot booth
+# photoBooth
 
 > URL: https://snapluu.org
 A responsive page that brings the photo booth online.
