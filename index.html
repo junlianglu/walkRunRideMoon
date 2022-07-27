@@ -19,10 +19,13 @@
       }
 
       body {
-        /*background-image: url('https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/bkg.png');*/
+        background-image: url('https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/bkg.png');
         background-size: 100% 100%;
         background-repeat: no-repeat;
         background-color: black;
+        /*background-repeat:no-repeat;
+        background-size:contain;
+        background-position:center;*/
         color: #ffffff;
         font-size: 10px;
         font-family: 'Space Grotesk', sans-serif;
@@ -50,22 +53,18 @@
       input.txt {
         width: 100%;
         background: #ffffff;
-        max-width: 300px;
-        padding: 20px 30px;
+        max-width: 77%;
+        padding: 15px 20px;
         border-radius: 35px;
         color: #652d90;
-        font-size: 16px;
+        font-size: 10px;
         border: none;
         outline: none;
       }
 
-      .upload-text {
-        float: right;
-      }
-
       p {
         margin-top: 0;
-        margin-bottom: 1rem;
+        margin-bottom: 16px;
         font-weight: bold;
         text-align: center;
       }
@@ -112,10 +111,10 @@
 
       #start-button-id {
         position: absolute;
-        top: 70%;
+        top: 70.5%;
         left: 0;
         right: 0;
-        bottom: 30%;
+        bottom: 29.5%;
         margin: auto;
       }
 
@@ -127,7 +126,7 @@
         bottom: 0;
         width: 100%;
         z-index: -1;
-        max-width: 405px;
+        /*max-width: 405px;*/
         margin: auto;
       }
 
@@ -141,9 +140,14 @@
         top: 0;
         left: 0;
         right: 0;
-        bottom: 0;
-        width: 100%;
-        max-width: 405px;
+        bottom: 10%;
+        /*width: 100%;*/
+        /*max-width: 405px;*/
+        /*max-width: 320px;*/
+        /*height: 100%;*/
+        /*height: 570px/730px;*/
+        max-height: 78%;
+        /*height: 78%;*/
         aspect-ratio: 0.5625;
       }
 
@@ -161,14 +165,13 @@
       .white-oval-button {
           font-family: 'Space Grotesk', sans-serif;
           font-weight: 400;
-          line-height: 1.5;
-          font-size: 20px;
+          line-height: 1.8;
+          font-size: 12px;
           background: #ffffff;
           border: none;
-          width: 85%;
+          width: 165px;
           margin: 0 auto;
-          max-width: 250px;
-          padding: 15px 0;
+          padding: 12px 12px;
           text-align: center;
           border-radius: 35px;
           color: #652d90;
@@ -181,8 +184,8 @@
 
       .webcam {
         position: relative;
-        height: 275px;
-        width: 275px;
+        height: 13.5vw;
+        width: 13.5vw;
         margin-left: auto;
         margin-right: auto;
       }
@@ -192,10 +195,10 @@
         top: 0;
         object-fit: cover;
         border-radius: 14px;
-        height: 273px;
-        width: 273px;
-        max-width: 300px;
-        max-height: 300px;
+        height: 13.4vw;
+        width: 13.4vw;
+        /*max-width: 300px;
+        max-height: 300px;*/
         -webkit-transform: scaleX(-1);
       }
 
@@ -203,16 +206,17 @@
         position: absolute;
         top: 0;
         border-radius: 14px;
-        height: 275px;
-        width: 275px;
+        height: 13.5vw;
+        width: 13.5vw;
       }
 
       #frame {
         position: absolute;
         top: 0;
         border-radius: 14px;
-        height: 275px;
-        width: 275px; 
+        height: 13.5vw;
+        width: 13.5vw;
+        outline: rgb(39, 35, 97) solid 2px;
       }
 
       .button-wrapper-live {
@@ -258,11 +262,11 @@
 
       .fa {
         padding: 20px;
-        font-size: 30px;
-        width: 30px;
+        font-size: 25px;
+        width: 25px;
         text-align: center;
         text-decoration: none;
-        margin: 5px 2px;
+        margin: 5px 1.5px;
         border-radius: 50%;
       }
 
@@ -360,6 +364,62 @@
         }
       };
       function startUpPage() {
+        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+        const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+        if (vw/vh < 674/458 || vw/vh > 1000/458) {
+          document.getElementsByTagName("BODY")[0].style.backgroundImage = 'none';
+        }
+        //x.style.backgroundColor = "black";
+        //x.style.backgroundColor = "red";
+        //var foobarElement = document.getElementById('foobar');
+        //foobarElement.style.background = 'none';
+        /*var site_content = document.getElementById("site-content-id");
+        let newWidth = screen.width*720/3510;
+        let newHeight = newWidth*1280/720;
+        site_content.style.width = newWidth + "px";
+        site_content.style.height = newHeight + "px";
+        var white_oval_buttons = document.getElementsByClassName("white-oval-button");
+        let oval_new_max_width = newWidth*167/315;
+        for (let i = 0; i < white_oval_buttons.length; i++) {
+          white_oval_buttons[i].style.maxWidth = oval_new_max_width + "px";
+        }*/
+        var web_cam = document.getElementById("webcam-id");
+        var video = document.getElementById("video");
+        var photo = document.getElementById("photo");
+        var frame = document.getElementById("frame");
+        var phoneWidth = vh*0.78*0.5625;
+        var phoneHeight = vh*0.78;
+        let cam_new_width = Math.round(phoneWidth*206/316.6);
+        web_cam.style.width = cam_new_width + "px";
+        web_cam.style.height = cam_new_width + "px";
+        video.style.width = cam_new_width + "px";
+        video.style.height = cam_new_width + "px";
+        photo.style.width = cam_new_width + "px";
+        photo.style.height = cam_new_width + "px";
+        frame.style.width = cam_new_width + "px";
+        frame.style.height = cam_new_width + "px";
+
+        var white_oval_buttons = document.getElementsByClassName("white-oval-button");
+        let oval_new_width = phoneWidth*137.452/263.25;
+        for (let i = 0; i < white_oval_buttons.length; i++) {
+          white_oval_buttons[i].style.width = oval_new_width + "px";
+        }
+        var camera_icon_id = document.getElementById("camera-icon-id");
+        var camera_icon_new_size = phoneWidth*30/316.6;
+        camera_icon_id.style.width = camera_icon_new_size  + "px";
+        camera_icon_id.style.height = camera_icon_new_size  + "px";
+
+        var lineBreaks = document.getElementsByTagName('p');
+        let breakSize = phoneHeight*118.932/1067.01 + "px";
+        for (let i = 0; i < lineBreaks.length; i++) {
+          lineBreaks[i].style.marginBottom = breakSize;
+        }
+        document.getElementById("message-choose-frame").style.marginBottom = "16px";
+        document.getElementById("camera-icon-p-id").style.marginBottom = "16px";
+        document.getElementById("message-tryAgain").style.marginBottom = "16px";
+        document.getElementById("message-enterInfo").style.marginBottom = "12px";
+        
+        //site_content.style.display = 'block';
         /*var site_content = document.getElementById("site-content-id");
         let height = site_content.clientHeight;
         let margin = (height - 720)/2;
@@ -399,6 +459,7 @@
       }
 
       function goToLivePageBack() {
+        document.getElementById("upload-photo-id").value = ''; 
         clearphoto();
         document.getElementById("photo").style.display = 'none';   
         document.getElementById("rate-area-id").style.display = 'none';
@@ -409,6 +470,7 @@
 
       function goToLivePageRestart() {
         document.getElementById("restart-or-share-area-id").style.display = 'none';
+        document.getElementById("upload-photo-id").value = ''; 
         clearphoto();
         document.getElementById("live-content-area-id").style.display = 'none';
         document.getElementById("submission-area-id").style.display = 'none';
@@ -497,6 +559,8 @@
         frame.style.display = 'none';
         document.getElementById("choose-overlay-area-id").style.display = 'none';
         document.getElementById("rate-area-id").style.display = 'block';
+        var audio = new Audio("shutter.mp3");
+        audio.play();
         //downloadPic();
       }
 
@@ -599,13 +663,12 @@
       <div class="content-area" id="content-area-id">
         <div id="starting-content-area-id">
           <img id="start-image" src="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/phoneStart.png" alt="start-image">
-          <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
           <div class="button-wrapper" id="start-button-id">
             <a class="white-oval-button" onclick="goToLivePage()">Take a Virtual Snap Now</a>
           </div>
         </div>
         <div id="live-content-area-id" style="display: none;">
-          <p><br></p><p><br></p><p><br></p>
+          <p><br></p>
           <div class="webcam" id="webcam-id">
             <video id="video" autoplay playsinline></video>
             <img id="photo" src="https://raw.githubusercontent.com/dexter5535576/walkRunRideMoon/master/img/frame1.png" alt="photo" style="display: none;">
@@ -614,11 +677,11 @@
           <canvas id="canvas" style="display: none;">
           </canvas>
           <div id="choose-experience-area-id">
-            <p style="font-size: 16px;"></p>
+            <p id="camera-icon-p-id" style="font-size: 16px;"></p>
             <div class="button-wrapper-live">
               <a class="camera-button" id="camera-button-id" onclick="showChooseOverlayArea()">
                 <span class="small-icon">
-                  <svg width="35" height="35" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                  <svg id="camera-icon-id" width="35" height="35" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
                        viewBox="0 0 838.3 838.3">
                       <g>
                           <g id="_2214363745072">
@@ -633,7 +696,7 @@
             </div>
           </div>
           <div id="choose-overlay-area-id">
-            <p id="message-choose-frame" style="font-size: 16px;">Choose an overlay below</p>
+            <p id="message-choose-frame" style="font-size: 10px;">Choose an overlay below</p>
             <div>
               <div class="select-background">
                 <div class="owl-carousel_1 owl-theme">
@@ -673,12 +736,13 @@
               <a class="white-oval-button" onclick="takepicture()">Snap Now</a>
             </div>
             <div id="upload-image-id" style="text-align:center;padding:3px">
-              <input type="file"  accept="image/*" name="image" id="file" class="upload-text"  onchange="loadFile(event)" style="display: block;text-decoration:underline">
+              <label for="upload-photo-id" style="cursor: pointer; text-decoration: underline;">Upload an image</label>
+              <input type="file" accept="image/*" name="image" id="upload-photo-id" onchange="loadFile(event)" style="display: none;">
               <!--<a class="upload-text" style="text-decoration:underline" onclick="pickFile()">Upload an image</a>-->
             </div>
           </div>
           <div id="rate-area-id">
-            <p id="message-tryAgain" style="font-size: 16px;">Awesome Shot! Agreed?</p>
+            <p id="message-tryAgain" style="font-size: 10px;">Awesome Shot! Agreed?</p>
             <div class="button-wrapper-live" id="live-button-id">
               <ul id="dislike-like-button-wrapper-id">
                 <li class="li-dislike-like">
@@ -725,9 +789,8 @@
         </div>
       </div>
       <div id="submission-area-id" style="display: none;">
-        <p><br></p><p><br></p><p><br></p>
-        <p id="message-enterInfo" style="font-size: 12px;">Please enter your information below<br>to receive your fantastic shot in your designated email<br>
-          Please use #WRR2Moon to share your photo.
+        <p><br></p>
+        <p id="message-enterInfo" style="font-size: 12px;">Please enter your information below<br>to receive your fantastic shot in your<br>designated email. Please use #WRR2Moon<br>to share your photo.
         </p>
         <div class="personal-detail-form" id="personal-detail-form-id">
           <ul>
@@ -746,12 +809,12 @@
         <button type="submit" class="white-oval-button" id="submit-button-id" onclick="showLastPage()">Submit</button>     
       </div>
       <div id="restart-or-share-area-id" style="display: none;">
-        <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
+        <p><br></p>
         <p id="message-restart" style="font-size: 16px;">Thank you! Play again?</p>
         <div class="button-wrapper" id="restart-button-id">
           <a class="white-oval-button" onclick="goToLivePageRestart()">Restart</a>
         </div>
-        <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
+        <p><br></p>
         <div class="button-wrapper social-buttons" id="share-buttons-id">
           <!--<div id="shareBtn" style="cursor: pointer;" class="fa fa-facebook"></div>
           <script>
