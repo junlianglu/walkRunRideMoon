@@ -3,7 +3,7 @@
 > URL: https://snapluu.org
 A responsive page that brings the photo booth online.
 ### Preview
-![2022 Walk Run Ride to the Moon](img/bkg.png)
+![2022 Walk Run Ride to the Moon](img/preview.png)
 
 ### Motivation
 I have already utilized HTML and CSS on my previous front-end projects—this time, I want to practice more using JavaScript to program dynamic elements.  In addition, I will develop a web page that can take a selfie and send an email or share it on social media.  It is essential for me because the project is challenging as it contains features that are totally new to me, and completing the project will help improve my full-stack web development skills.
