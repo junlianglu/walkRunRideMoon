@@ -19,6 +19,7 @@ var loadFile = function(event) {
     document.getElementById("rate-area-id").style.display = 'block';
   }
 };
+
 function startUpPage() {
   const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
   const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
@@ -84,6 +85,8 @@ function startUpPage() {
   document.getElementById("live-content-area-id").style.display = 'none';
   document.getElementById("submission-area-id").style.display = 'none';
   document.getElementById("restart-or-share-area-id").style.display = 'none';
+
+  document.getElementById("google_translate_element").style.display = 'block';
 }
 
 function goToLivePage() {

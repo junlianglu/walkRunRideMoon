@@ -46,14 +46,15 @@ app.post('/nodeapp', (req, res) => {
           <br><br>\
           Thank you for participating in Walk,Run, Ride,to the Moon to support Self-Help for the Elderly and celebrating Mid-Autumn Moon Festival with us. Your #walkrunride2moon photo from Snapluu is attached.<br>\
           Self-Help for the Elderly holds an annual walkathon near the date of the Autumn Moon Festival to celebrate unity and compassion.<br>\
-          We wish everyone health, joy and peace in their daily life, less hate but more smiles.<br><br>\
+          We wish everyone health, joy and peace in their daily life. Smile More!<br><br>\
           You are welcome to join Walk Run Ride to the Moon 2022 in-person walks and a virtual celebration:<br>\
           <ul>\
             <li>Longevity Walkathon in San Francisco Chinatown <u>on September 10, 2022</u></li>\
-            <li>Autumn Moon Festival & San Mateo Center's 30th Anniversary Celebration in San Mateo Center Park <u>on September 17, 2022</u></li>\
+            <li>Autumn Moon Festival & San Mateo Center's 30th Anniversary Celebration in San Mateo Central Park <u>on September 17, 2022</u></li>\
             <li>#WalkRunRide2Moon Virtual Wrap-Up Party <u>on September 22, 2022</u></li>\
           </ul>\
           <p>Visit <a href='https://www.selfhelpelderly.org/'>selfhelpelderly.org</a> to learn more our resources, services, and events to help you or your loved one move forward towards happy and healthy living.</p>\
+          <p><a href='https://bit.ly/22SHEWalkRunRide2Moon'>Donate to Support</a></p>\
           <p>\
             Sincerely,<br>\
             Walk Run Ride to the Moon 2022<br>\
